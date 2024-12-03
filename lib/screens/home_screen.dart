@@ -1,5 +1,9 @@
 
+import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket_app/base/res/Style/app_style.dart';
+import 'package:ticket_app/base/res/media.dart';
+import 'package:ticket_app/base/widgets/app_double_text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,8 +11,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppStyle.bgColor,
       body: ListView(
         children: [
+          const SizedBox(height: 40,),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -16,30 +22,44 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Good Morning",style: TextStyle(),),
-                        SizedBox(height: 5),
-                        Text("Book Ticket")
+                        Text("Good Morning",style: AppStyle.headTextSmall,),
+                        const SizedBox(height: 5),
+                        Text("Book Ticket",style: AppStyle.headTextBig,)
                       ],
                     ),
                     Container(
-                      color: Colors.red,
-                      width: 70,
-                      height: 70
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(AppMedia.logo),
+                        ),
+                        borderRadius: BorderRadius.circular(10)
+                      ),
                     ),
                   ],
-                ),const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("text 1"),
-                    Text("text 2")
-                  ],
+                ),SizedBox(height: 15,)
+                ,Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white
+                  ),
+                  child: const Row(
+                    children: [
+                      Icon(FluentSystemIcons.ic_fluent_search_filled),
+                      Text("text 1"),
+                    ],
+                  ),
                 )
               ],
             ),
-          )
+          ),
+          const SizedBox(height: 40,),
+          AppDoubleText(),
         ],
       ),
     );

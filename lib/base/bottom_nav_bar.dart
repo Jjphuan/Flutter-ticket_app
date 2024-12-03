@@ -12,9 +12,9 @@ class ButtomNavBar extends StatefulWidget {
 class _ButtomNavBarState extends State<ButtomNavBar> {
   final appScreen = [
     const HomeScreen(),
-    Text("Search"),
-    Text("Tickets"),
-    Text("Profile"),
+    const Text("Search"),
+    const Text("Tickets"),
+    const Text("Profile"),
   ];
 
   int _selectedIndex = 0;
@@ -27,9 +27,6 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("My Ticket"),
-      ),
       body: appScreen[_selectedIndex],
       bottomNavigationBar: Container(
         child: BottomNavigationBar(
