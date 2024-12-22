@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/Style/app_style.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/widgets/app_double_text.dart';
+import 'package:ticket_app/base/widgets/ticket_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -34,16 +35,16 @@ class HomeScreen extends StatelessWidget {
                       width: 60,
                       height: 60,
                       decoration: BoxDecoration(
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(AppMedia.logo),
                         ),
                         borderRadius: BorderRadius.circular(10)
                       ),
                     ),
                   ],
-                ),SizedBox(height: 15,)
+                ),const SizedBox(height: 25,)
                 ,Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+                  padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.white
@@ -54,12 +55,13 @@ class HomeScreen extends StatelessWidget {
                       Text("text 1"),
                     ],
                   ),
-                )
+                ),
+                const SizedBox(height: 40,),
+                AppDoubleText(bigText: 'Upcoming Flight',smallText: 'view all',),
+                TicketView(),
               ],
             ),
           ),
-          const SizedBox(height: 40,),
-          AppDoubleText(),
         ],
       ),
     );
