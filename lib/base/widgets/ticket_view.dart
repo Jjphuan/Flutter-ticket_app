@@ -8,7 +8,8 @@ import 'package:ticket_app/base/widgets/ticket_column.dart';
 
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
-  const TicketView({super.key , required this.ticket });
+  final bool fullTicket;
+  const TicketView({super.key, required this.ticket, this.fullTicket=false});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +19,13 @@ class TicketView extends StatelessWidget {
       width: size.width * 0.85,
       height: 190,
       child: Container(
-        margin: EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: fullTicket==false? 16:0),
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15)),
                 color: AppStyle.ticketBlue,

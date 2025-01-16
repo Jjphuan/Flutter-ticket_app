@@ -14,14 +14,18 @@ class AppDoubleText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-      Text(bigText,style: AppStyle.headTextSmall.copyWith(fontWeight: FontWeight.w600),),
-      InkWell(
-        onTap: (){
-
-        },
-        child: Text(smallText,style: AppStyle.headline1,),
-
-      )
-    ],);
+        Text(
+          bigText,
+          style: AppStyle.headTextSmall.copyWith(fontWeight: FontWeight.w600),
+        ),
+        InkWell(
+          onTap: () => Navigator.pushNamed(context,"all_tickets"),
+          child: Text(
+            smallText,
+            style: AppStyle.headline1,
+          ),
+        )
+      ],
+    );
   }
 }
