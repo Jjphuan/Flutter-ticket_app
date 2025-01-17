@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Color primary = Colors.blue;
+Color primary = const Color.fromARGB(255, 42, 126, 194);
 
 class AppStyle {
   static Color bgColor = const Color(0xFFeeeff2);
@@ -11,7 +11,7 @@ class AppStyle {
   static Color ticketRed = const Color.fromARGB(255, 245, 77, 77);
 
   static TextStyle headTextSmall =
-      TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: textColor);
+      TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: textColor);
 
   static TextStyle headTextSmaller =
       TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: textColor);

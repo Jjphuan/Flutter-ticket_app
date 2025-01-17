@@ -9,6 +9,6 @@ class TicketBigtext extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(text,
-        style: AppStyle.headTextSmall.copyWith(color: Colors.white));
+        style: AppStyle.headTextSmall.copyWith(color: Colors.white, fontSize: 16));
   }
 }
