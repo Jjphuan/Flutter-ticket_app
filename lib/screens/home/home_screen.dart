@@ -52,10 +52,11 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.white
                   ),
-                  child: const Row(
+                  child: Row(
                     children: [
-                      Icon(FluentSystemIcons.ic_fluent_search_filled),
-                      Text("text 1"),
+                      const Icon(FluentSystemIcons.ic_fluent_search_filled),
+                      const SizedBox(width: 5),
+                      Text("Search",style: AppStyle.headTextSmaller,),
                     ],
                   ),
                 ),
