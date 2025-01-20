@@ -14,14 +14,30 @@ class AllTickets extends StatelessWidget {
       body: ListView(
         children: [
           SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              children: ticketList.map((singleTicket)=> Container(
-                margin: const EdgeInsets.only(bottom: 20,top: 15),
-                child: TicketView(ticket: singleTicket, fullTicket: true,)
-              )).toList()
-            )
-          )
+              scrollDirection: Axis.vertical,
+              child: Column(
+                  children: ticketList
+                      .map((singleTicket) => GestureDetector(
+                            onTap: () {
+                              var index = ticketList.indexOf(singleTicket);
+
+                              print(index);
+                              Navigator.pushNamed(
+                                context, 
+                                "ticket_screen",
+                                arguments: {
+                                  'index':index
+                                });
+                            },
+                            child: Container(
+                                margin:
+                                    const EdgeInsets.only(bottom: 20, top: 15),
+                                child: TicketView(
+                                  ticket: singleTicket,
+                                  fullTicket: true,
+                                )),
+                          ))
+                      .toList()))
         ],
       ),
     );

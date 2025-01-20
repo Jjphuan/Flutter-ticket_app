@@ -24,7 +24,7 @@ class SearchScreen extends StatelessWidget {
             style: AppStyle.headTextBig.copyWith(fontSize: 35),
           ),
           const SizedBox(height: 15,),
-          const SearchTab(),
+          const SearchTab(firstText: "Airline Tickets",secondText: "Hotel",),
           const SizedBox(height: 15),
           SearchField(text: "Departure",icon: Icon(Icons.flight_takeoff_outlined,color: AppStyle.iconColor)),
           const SizedBox(height:10),

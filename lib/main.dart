@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/bottom_nav_bar.dart';
 import 'package:ticket_app/screens/home/all_ticket.dart';
+import 'package:ticket_app/screens/ticket/ticket_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const ButtomNavBar(),
         'all_tickets': (context)=>const AllTickets(),
+        'ticket_screen': (context)=>const TicketScreen(),
       }
     );
   }
