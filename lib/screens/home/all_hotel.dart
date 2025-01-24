@@ -26,7 +26,7 @@ class AllHotel extends StatelessWidget {
                   childAspectRatio: 0.8),
               itemCount: hotelList.length,
               itemBuilder: (context, index) {
-                var singleHotel = HotelGrid(hotelList: hotelList[index]);
+                var singleHotel = HotelGrid(hotelList: hotelList[index],index:index);
                 return Container(
                   child: singleHotel,
                 );
@@ -37,14 +37,16 @@ class AllHotel extends StatelessWidget {
 
 class HotelGrid extends StatelessWidget {
   final Map<String, dynamic> hotelList;
-  const HotelGrid({super.key, required this.hotelList});
+  final int index;
+  const HotelGrid({super.key, required this.hotelList, required this.index});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, "hotel_details");
+        Navigator.pushNamed(context, "hotel_details",
+            arguments: {'index': index});
       },
       child: Container(
         margin: const EdgeInsets.only(right: 25),
