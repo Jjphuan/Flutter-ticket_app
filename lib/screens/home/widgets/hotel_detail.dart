@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ticket_app/base/res/Style/app_style.dart';
 import 'package:ticket_app/base/utils/all_json.dart';
+import 'package:ticket_app/controller/expand_text_controller.dart';
 
 class HotelDetail extends StatefulWidget {
   const HotelDetail({super.key});
@@ -57,8 +59,7 @@ class _HotelDetailState extends State<HotelDetail> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
                     color: Colors.black.withOpacity(0.5),
-                    child: Text(
-                      hotelList[index]['name'],
+                    child: Text(hotelList[index]['name'],
                         style:
                             const TextStyle(color: Colors.white, fontSize: 20)),
                   ),
@@ -70,21 +71,29 @@ class _HotelDetailState extends State<HotelDetail> {
               delegate: SliverChildListDelegate([
             Padding(
               padding: EdgeInsets.all(16),
-              child: ExpandedText(
-                text:
-                    hotelList[index]['details']
-              ),
+              child: ExpandedText(text: hotelList[index]['details']),
             ),
             SizedBox(
               height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 12.0),
+              child: Text(
+                "More Images",
+                style: AppStyle.headTextSmall,
+              ),
             ),
             Container(
               height: 200,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Image.network("https://via.placeholder.com/200x150");
+                itemCount: hotelList[index]["images"].length,
+                itemBuilder: (context, imagesIndex) {
+                  return Container(
+                    margin: EdgeInsets.all(16),
+                    child: Image.asset(
+                        "assets/images/${hotelList[index]["images"][imagesIndex]}"),
+                  );
                 },
               ),
             )
@@ -95,42 +104,36 @@ class _HotelDetailState extends State<HotelDetail> {
   }
 }
 
-class ExpandedText extends StatefulWidget {
+class ExpandedText extends StatelessWidget {
   final String text;
-  const ExpandedText({super.key, required this.text});
+  ExpandedText({super.key, required this.text});
 
-  @override
-  State<ExpandedText> createState() => _ExpandedTextState();
-}
-
-class _ExpandedTextState extends State<ExpandedText> {
-  bool isExpanded = false;
-  _toggleExpanded() {
-    setState(() {
-      isExpanded = !isExpanded;
-    });
-  }
+  final ExpandTextController controller = Get.put(ExpandTextController());
 
   @override
   Widget build(BuildContext context) {
-    var textWidget = Text(
-      widget.text,
-      maxLines: isExpanded? null : 3,
-      overflow: isExpanded? TextOverflow.visible :TextOverflow.ellipsis,
-    );
 
-    return Column(
+    return Obx(() {
+      var textWidget = Text(
+        text,
+        maxLines: controller.isExpanded.value ? null : 3,
+        overflow: controller.isExpanded.value
+            ? TextOverflow.visible
+            : TextOverflow.ellipsis,
+      );
+      return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         textWidget,
         GestureDetector(
-          onTap: _toggleExpanded,
+          onTap: controller.toggleExpanded,
           child: Text(
-            isExpanded ? "Show less" : "Show more",
+            controller.isExpanded.value ? "Show less" : "Show more",
             style: AppStyle.headline1,
           ),
         )
       ],
     );
+    });
   }
 }
