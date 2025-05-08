@@ -1,0 +1,23 @@
+{
+  "@@locale": "en",
+  "appTitle": "Flutter l18n",
+  "@appTitle": {
+    "description": "Book Ti"
+  },
+  "welcome": "Welcome!",
+  "book_ticket": "Book Ticket",
+  "search": "Search",
+  "upcoming_flight": "Upcoming Flight",
+  "view_all": "View all",
+  "hotel": "Hotel",
+  "what_looking_for": "What are you looking for ?",
+  "airline_ticket": "Airline Ticket",
+  "departure": "Departure",
+  "arrival": "Arrival",
+  "find_ticket": "Find Tickets",
+  "ticket": "Ticket",
+  "history": "History",
+  "your_new_award": "You got new award",
+  "check_discount": "Check discount"
+
+}

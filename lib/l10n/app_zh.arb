@@ -1,0 +1,22 @@
+{
+  "@@locale": "zh",
+  "appTitle": "丁酒店",
+  "@appTitle": {
+    "description": "订购酒店"
+  },
+  "welcome": "欢迎!",
+  "book_ticket": "预定机票",
+  "search": "搜索",
+  "upcoming_flight": "即将起飞的航班",
+  "view_all": "查看全部",
+  "hotel": "酒店",
+  "what_looking_for": "在找什么 ?",
+  "airline_ticket": "航线机票",
+  "departure": "出发点",
+  "arrival": "目的地",
+  "find_ticket": "搜索机票",
+  "ticket": "机票",
+  "history": "购票历史",
+  "your_new_award": "你有新的奖励",
+  "check_discount": "查看折扣"
+}

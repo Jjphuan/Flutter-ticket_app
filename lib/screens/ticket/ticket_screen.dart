@@ -7,6 +7,7 @@ import 'package:ticket_app/base/widgets/builerlayout.dart';
 import 'package:ticket_app/base/widgets/ticket_column.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
 import 'package:ticket_app/screens/search/widgets/search_tab.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class TicketScreen extends StatefulWidget {
   const TicketScreen({super.key});
@@ -31,19 +32,19 @@ class _TicketScreenState extends State<TicketScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Ticket",
+          AppLocalizations.of(context)!.ticket,
           style: AppStyle.headTextBig,
         ),
         backgroundColor: AppStyle.bgColor,
       ),
       backgroundColor: AppStyle.bgColor,
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         children: [
           const SizedBox(height: 25),
-          const SearchTab(
-            firstText: "Upcoming",
-            secondText: "History",
+          SearchTab(
+            firstText: AppLocalizations.of(context)!.upcoming_flight,
+            secondText: AppLocalizations.of(context)!.history,
           ),
           const SizedBox(height: 20),
           Container(

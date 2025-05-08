@@ -9,14 +9,20 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Row(
         children: [
           icon,
           const SizedBox(width: 10),
-          Text(text,style: AppStyle.headTextSmall.copyWith(color:const Color.fromARGB(255, 101, 101, 101)))
+          Text(
+              text,
+              style: AppStyle.headTextSmall.copyWith(
+                  color:const Color.fromARGB(255, 101, 101, 101),
+                  fontSize: 15
+              )
+          )
         ],
       ),
     );

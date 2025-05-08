@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/Style/app_style.dart';
 
 class SearchButton extends StatelessWidget {
-  const SearchButton({super.key});
+  final String label;
+  const SearchButton({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +15,11 @@ class SearchButton extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          "Find Tickets",
-          style: AppStyle.headTextSmall.copyWith(color:Colors.white)
+          label,
+          style: AppStyle.headTextSmall.copyWith(
+              color:Colors.white,
+              fontSize: 18
+          )
           ),
       ),
     );

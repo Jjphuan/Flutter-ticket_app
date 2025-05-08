@@ -1,17 +1,27 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ticket_app/base/res/Style/app_style.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/widgets/app_double_text.dart';
+import 'package:ticket_app/provider/locale_provider.dart';
 import 'package:ticket_app/screens/home/widgets/hotel.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
 import 'package:ticket_app/base/utils/all_json.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
+    final localeProvider = Provider.of<LocaleProvider>(context,listen: true);
+
     return Scaffold(
       backgroundColor: AppStyle.bgColor,
       body: ListView(
@@ -30,12 +40,12 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Good Morning",
+                          AppLocalizations.of(context)!.welcome,
                           style: AppStyle.headTextSmall,
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          "Book Ticket",
+                          AppLocalizations.of(context)!.book_ticket,
                           style: AppStyle.headTextBig,
                         )
                       ],
@@ -66,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                       const Icon(FluentSystemIcons.ic_fluent_search_filled),
                       const SizedBox(width: 5),
                       Text(
-                        "Search",
+                        AppLocalizations.of(context)!.search,
                         style: AppStyle.headTextSmaller,
                       ),
                     ],
@@ -76,8 +86,8 @@ class HomeScreen extends StatelessWidget {
                   height: 40,
                 ),
                 AppDoubleText(
-                  bigText: 'Upcoming Flight',
-                  smallText: 'view all',
+                  bigText: AppLocalizations.of(context)!.upcoming_flight,
+                  smallText: AppLocalizations.of(context)!.view_all,
                   function: () => Navigator.pushNamed(context, "all_tickets"),
                 ),
                 const SizedBox(height: 20),
@@ -101,8 +111,8 @@ class HomeScreen extends StatelessWidget {
                   height: 40,
                 ),
                 AppDoubleText(
-                  bigText: 'Hotels',
-                  smallText: 'view all',
+                  bigText: AppLocalizations.of(context)!.hotel,
+                  smallText: AppLocalizations.of(context)!.view_all,
                   function: () => Navigator.pushNamed(context, "all_hotels"),
                 ),
                 const SizedBox(height: 15),

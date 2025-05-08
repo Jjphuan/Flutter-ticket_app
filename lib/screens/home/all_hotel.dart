@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/Style/app_style.dart';
 import 'package:ticket_app/base/utils/all_json.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class AllHotel extends StatelessWidget {
   const AllHotel({super.key});
@@ -10,7 +11,7 @@ class AllHotel extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "All Hotels",
+            AppLocalizations.of(context)!.welcome,
             style: AppStyle.headTextBig,
           ),
           backgroundColor: AppStyle.bgColor,
@@ -19,7 +20,7 @@ class AllHotel extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.only(left: 15, top: 5),
           child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 1,
                   mainAxisSpacing: 15,
