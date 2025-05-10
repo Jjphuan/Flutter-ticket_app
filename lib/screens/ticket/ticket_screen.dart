@@ -20,10 +20,10 @@ class _TicketScreenState extends State<TicketScreen> {
   late int ticketIndex = 0;
   @override
   void didChangeDependencies() {
-    if(ModalRoute.of(context)!.settings.arguments != null){
-      var args = ModalRoute.of(context)!.settings.arguments as Map;
-      ticketIndex = args['index'];
-    }
+    // if(ModalRoute.of(context)!.settings.arguments != null){
+    //   var args = ModalRoute.of(context)!.settings.arguments as Map;
+    //   ticketIndex = args['index'];
+    // }
     super.didChangeDependencies();
   }
 
@@ -50,7 +50,7 @@ class _TicketScreenState extends State<TicketScreen> {
           Container(
             padding: const EdgeInsets.only(left: 16),
             child: TicketView(
-              ticket: ticketList[ticketIndex],
+              ticket: ticketList[0],
               isColors: false,
             ),
           ),

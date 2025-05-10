@@ -18,5 +18,10 @@
   "ticket": "机票",
   "history": "购票历史",
   "your_new_award": "你有新的奖励",
-  "check_discount": "查看折扣"
+  "check_discount": "查看折扣",
+  "setting": "设置",
+  "change_language": "更换语言",
+
+  "chinese": "中文",
+  "english": "英文"
 }

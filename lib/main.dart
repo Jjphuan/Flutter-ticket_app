@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:get/get.dart';
 import 'package:ticket_app/base/bottom_nav_bar.dart';
+import 'package:ticket_app/router/router.dart';
 import 'package:ticket_app/screens/home/all_hotel.dart';
 import 'package:ticket_app/screens/home/all_ticket.dart';
 import 'package:ticket_app/screens/home/widgets/hotel_detail.dart';
@@ -29,19 +30,13 @@ class MyApp extends StatelessWidget {
       value: localeProvider,
       child: Consumer<LocaleProvider>(
         builder: (context, provider, child) {
-          return MaterialApp(
+          return MaterialApp.router(
             onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             locale: provider.locale,
             debugShowCheckedModeBanner: false,
-            routes: {
-              '/': (context) => ButtomNavBar(),
-              'all_tickets': (context) => const AllTickets(),
-              'ticket_screen': (context) => const TicketScreen(),
-              'all_hotels': (context) => const AllHotel(),
-              'hotel_details': (context) => const HotelDetail(),
-            },
+            routerConfig: router,
           );
         },
       ),

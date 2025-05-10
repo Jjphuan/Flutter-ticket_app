@@ -7,8 +7,8 @@ import 'package:ticket_app/screens/search/search_screen.dart';
 import 'package:ticket_app/screens/ticket/ticket_screen.dart';
 import 'package:get/get.dart';
 
-class ButtomNavBar extends StatelessWidget {
-  ButtomNavBar({super.key});
+class BottomNavBar extends StatelessWidget {
+  BottomNavBar({super.key});
 
   final appScreen = [
     const HomeScreen(),

@@ -18,6 +18,11 @@
   "ticket": "Ticket",
   "history": "History",
   "your_new_award": "You got new award",
-  "check_discount": "Check discount"
+  "check_discount": "Check discount",
+  "setting": "Setting",
+  "change_language": "Change Language",
+
+  "chinese": "Chinese",
+  "english": "English"
 
 }
