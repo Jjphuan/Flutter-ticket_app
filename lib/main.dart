@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:get/get.dart';
 import 'package:ticket_app/base/bottom_nav_bar.dart';
+import 'package:ticket_app/provider/setting_provider.dart';
 import 'package:ticket_app/router/router.dart';
 import 'package:ticket_app/screens/home/all_hotel.dart';
 import 'package:ticket_app/screens/home/all_ticket.dart';
@@ -26,8 +27,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: localeProvider,
+    return MultiProvider(
+        providers: [
+            ChangeNotifierProvider.value(
+            value: localeProvider,
+          ),
+          ChangeNotifierProvider(create: (_) => SettingProvider())
+        ],
       child: Consumer<LocaleProvider>(
         builder: (context, provider, child) {
           return MaterialApp.router(

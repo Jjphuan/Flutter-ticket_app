@@ -21,6 +21,8 @@
   "check_discount": "Check discount",
   "setting": "Setting",
   "change_language": "Change Language",
+  "load_failed": "Failed Load",
+  "not_data": "Not data",
 
   "chinese": "Chinese",
   "english": "English"

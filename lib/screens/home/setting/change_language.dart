@@ -42,7 +42,7 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
 
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height / 14),
+          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height / 16),
           child: AppBar(
             iconTheme: const IconThemeData(color: Colors.white),
             backgroundColor: Colors.grey,
@@ -50,6 +50,7 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
               AppLocalizations.of(context)!.change_language,
               style: AppStyle.headTextBig.copyWith(
                   color: Colors.white,
+                  fontSize: 20,
                   letterSpacing: 1
               ),
             ),
