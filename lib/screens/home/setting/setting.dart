@@ -3,8 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localization.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:provider/provider.dart';
-import 'package:ticket_app/base/res/Style/app_style.dart';
-import 'package:ticket_app/provider/setting_provider.dart';
+import 'package:GoTravel/base/res/Style/app_style.dart';
+import 'package:GoTravel/provider/setting_provider.dart';
 
 class Setting extends StatefulWidget {
   const Setting({super.key});
@@ -18,7 +18,7 @@ class _SettingState extends State<Setting> {
 
   @override
   void initState() {
-    _getSettingList();
+    // _getSettingList();
     super.initState();
   }
 
@@ -65,7 +65,7 @@ class _SettingState extends State<Setting> {
                   return GestureDetector(
                     onTap: () async{
                       await context.push('/profile/setting/${currentData['route_name']}');
-                      _getSettingList();
+                      // _getSettingList();
                     },
                     child: Container(
                       width: double.infinity,

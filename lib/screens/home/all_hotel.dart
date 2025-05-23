@@ -1,6 +1,6 @@
+import 'package:GoTravel/base/res/Style/app_style.dart';
+import 'package:GoTravel/base/utils/all_json.dart';
 import 'package:flutter/material.dart';
-import 'package:ticket_app/base/res/Style/app_style.dart';
-import 'package:ticket_app/base/utils/all_json.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class AllHotel extends StatelessWidget {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ticket_app/base/res/Style/app_style.dart';
-import 'package:ticket_app/base/res/media.dart';
-import 'package:ticket_app/base/widgets/app_double_text.dart';
-import 'package:ticket_app/screens/search/widgets/search_button.dart';
-import 'package:ticket_app/screens/search/widgets/search_field.dart';
-import 'package:ticket_app/screens/search/widgets/search_tab.dart';
+import 'package:GoTravel/base/res/Style/app_style.dart';
+import 'package:GoTravel/base/res/media.dart';
+import 'package:GoTravel/base/widgets/app_double_text.dart';
+import 'package:GoTravel/screens/search/widgets/search_button.dart';
+import 'package:GoTravel/screens/search/widgets/search_field.dart';
+import 'package:GoTravel/screens/search/widgets/search_tab.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class SearchScreen extends StatefulWidget {

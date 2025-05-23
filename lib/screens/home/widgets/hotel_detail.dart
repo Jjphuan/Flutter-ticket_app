@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ticket_app/base/res/Style/app_style.dart';
-import 'package:ticket_app/base/utils/all_json.dart';
-import 'package:ticket_app/controller/expand_text_controller.dart';
+import 'package:GoTravel/base/res/Style/app_style.dart';
+import 'package:GoTravel/base/utils/all_json.dart';
+import 'package:GoTravel/controller/expand_text_controller.dart';
 
 class HotelDetail extends StatefulWidget {
   const HotelDetail({super.key});

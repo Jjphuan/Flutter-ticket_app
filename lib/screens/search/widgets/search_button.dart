@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_app/base/res/Style/app_style.dart';
+import 'package:GoTravel/base/res/Style/app_style.dart';
 
 class SearchButton extends StatelessWidget {
   final String label;

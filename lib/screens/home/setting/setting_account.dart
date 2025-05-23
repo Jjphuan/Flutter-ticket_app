@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_app/base/res/Style/app_style.dart';
+import 'package:GoTravel/base/res/Style/app_style.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class SettingAccount extends StatefulWidget {

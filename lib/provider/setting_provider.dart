@@ -1,11 +1,11 @@
+import 'package:GoTravel/base/widgets/showDialog.dart';
+import 'package:GoTravel/custom/endpoint.dart';
+import 'package:GoTravel/custom/http_parse.dart';
+import 'package:GoTravel/provider/locale_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:ticket_app/base/widgets/showDialog.dart';
-import 'package:ticket_app/custom/endpoint.dart';
-import 'package:ticket_app/custom/http_parse.dart';
-import 'package:ticket_app/provider/locale_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class SettingProvider extends ChangeNotifier{
@@ -16,7 +16,7 @@ class SettingProvider extends ChangeNotifier{
   Future<void> getSettingList(BuildContext context) async {
 
     try {
-      Response response = await HttpParse().get(
+      Response response = await  HttpParse().get(
           Endpoint.getSetting,
       );
 

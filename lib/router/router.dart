@@ -1,17 +1,18 @@
+import 'package:GoTravel/base/bottom_nav_bar.dart';
+import 'package:GoTravel/screens/home/all_hotel.dart';
+import 'package:GoTravel/screens/home/all_ticket.dart';
+import 'package:GoTravel/screens/home/home_screen.dart';
+import 'package:GoTravel/screens/home/setting/change_language.dart';
+import 'package:GoTravel/screens/home/setting/setting.dart';
+import 'package:GoTravel/screens/home/setting/setting_account.dart';
+import 'package:GoTravel/screens/home/widgets/hotel_detail.dart';
+import 'package:GoTravel/screens/profile/profile_screen.dart';
+import 'package:GoTravel/screens/search/search_screen.dart';
+import 'package:GoTravel/screens/ticket/ticket_screen.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ticket_app/base/bottom_nav_bar.dart';
-import 'package:ticket_app/screens/home/all_hotel.dart';
-import 'package:ticket_app/screens/home/all_ticket.dart';
-import 'package:ticket_app/screens/home/home_screen.dart';
-import 'package:ticket_app/screens/home/setting/setting_account.dart';
-import 'package:ticket_app/screens/home/setting/change_language.dart';
-import 'package:ticket_app/screens/home/setting/setting.dart';
-import 'package:ticket_app/screens/home/widgets/hotel_detail.dart';
-import 'package:ticket_app/screens/profile/profile_screen.dart';
-import 'package:ticket_app/screens/search/search_screen.dart';
-import 'package:ticket_app/screens/ticket/ticket_screen.dart';
 
 final GoRouter router = GoRouter(
+    initialLocation: '/',
     routes: [
       GoRoute(
           path: '/',
@@ -36,14 +37,14 @@ final GoRouter router = GoRouter(
           ]
       ),
       GoRoute(
-          path: '/search',
+          path: '/help',
           builder: (context,state) => const BottomNavBar(child: SearchScreen()),
           routes: [
 
           ]
       ),
       GoRoute(
-          path: '/tickets',
+          path: '/booking',
           builder: (context,state) => const BottomNavBar(child: TicketScreen()),
           routes: [
 

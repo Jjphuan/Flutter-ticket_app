@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 import 'package:provider/provider.dart';
-import 'package:ticket_app/base/res/Style/app_style.dart';
-import 'package:ticket_app/provider/locale_provider.dart';
+import 'package:GoTravel/base/res/Style/app_style.dart';
+import 'package:GoTravel/provider/locale_provider.dart';
 
 class ChangeLanguage extends StatefulWidget {
   const ChangeLanguage({super.key});

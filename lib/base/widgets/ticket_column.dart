@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_app/base/widgets/ticket_bigText.dart';
-import 'package:ticket_app/base/widgets/ticket_smallText.dart';
+import 'package:GoTravel/base/widgets/ticket_bigText.dart';
+import 'package:GoTravel/base/widgets/ticket_smallText.dart';
 
 class TicketColumn extends StatelessWidget {
   final String toptext;

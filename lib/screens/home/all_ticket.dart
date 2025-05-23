@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_app/base/utils/all_json.dart';
-import 'package:ticket_app/base/widgets/ticket_view.dart';
+import 'package:GoTravel/base/utils/all_json.dart';
+import 'package:GoTravel/base/widgets/ticket_view.dart';
 
 class AllTickets extends StatelessWidget {
   const AllTickets({super.key});

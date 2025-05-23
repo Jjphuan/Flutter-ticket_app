@@ -6,6 +6,7 @@ class AppStyle {
   static Color bgColor = const Color.fromARGB(255, 233, 232, 232);
   static Color primaryColor = primary;
   static Color textColor = Colors.black87;
+  static Color? appbarColor = Colors.blue[400];
   static Color inkWellColor = const Color.fromARGB(255, 24, 95, 195);
   static Color ticketBlue = const Color.fromARGB(255, 71, 78, 173);
   static Color ticketRed = const Color.fromARGB(255, 245, 77, 77);

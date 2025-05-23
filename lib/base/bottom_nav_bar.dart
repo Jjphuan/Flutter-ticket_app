@@ -1,11 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ticket_app/controller/bottom_nav_controller.dart';
-import 'package:ticket_app/screens/home/home_screen.dart';
-import 'package:ticket_app/screens/profile/profile_screen.dart';
-import 'package:ticket_app/screens/search/search_screen.dart';
-import 'package:ticket_app/screens/ticket/ticket_screen.dart';
 import 'package:get/get.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -14,8 +9,8 @@ class BottomNavBar extends StatelessWidget {
 
   int _calculateSelectedIndex(BuildContext context) {
     final location = GoRouter.of(context).routerDelegate.currentConfiguration.fullPath;
-    if (location.startsWith('/search')) return 1;
-    if (location.startsWith('/tickets')) return 2;
+    if (location.startsWith('/booking')) return 1;
+    if (location.startsWith('/help')) return 2;
     if (location.startsWith('/profile')) return 3;
     return 0;
   }
@@ -26,10 +21,10 @@ class BottomNavBar extends StatelessWidget {
         context.go('/');
         break;
       case 1:
-        context.go('/search');
+        context.go('/booking');
         break;
       case 2:
-        context.go('/tickets');
+        context.go('/help');
         break;
       case 3:
         context.go('/profile');
@@ -56,14 +51,14 @@ class BottomNavBar extends StatelessWidget {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(FluentSystemIcons.ic_fluent_search_regular),
-            activeIcon: Icon(FluentSystemIcons.ic_fluent_search_filled),
-            label: "Search",
-          ),
-          BottomNavigationBarItem(
             icon: Icon(FluentSystemIcons.ic_fluent_ticket_regular),
             activeIcon: Icon(FluentSystemIcons.ic_fluent_ticket_filled),
             label: "Tickets",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FluentSystemIcons.ic_fluent_alert_on_regular),
+            activeIcon: Icon(FluentSystemIcons.ic_fluent_alert_on_filled),
+            label: "Booking",
           ),
           BottomNavigationBarItem(
             icon: Icon(FluentSystemIcons.ic_fluent_person_regular),

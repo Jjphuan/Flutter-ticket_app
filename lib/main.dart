@@ -1,15 +1,10 @@
+import 'package:GoTravel/provider/locale_provider.dart';
+import 'package:GoTravel/provider/setting_provider.dart';
+import 'package:GoTravel/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:get/get.dart';
-import 'package:ticket_app/base/bottom_nav_bar.dart';
-import 'package:ticket_app/provider/setting_provider.dart';
-import 'package:ticket_app/router/router.dart';
-import 'package:ticket_app/screens/home/all_hotel.dart';
-import 'package:ticket_app/screens/home/all_ticket.dart';
-import 'package:ticket_app/screens/home/widgets/hotel_detail.dart';
-import 'package:ticket_app/screens/ticket/ticket_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
-import 'package:ticket_app/provider/locale_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
