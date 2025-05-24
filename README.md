@@ -6,3 +6,4 @@ This is my first flutter app pratice without backend</br>
 <img width="254" alt="图片_20250203205409" src="https://github.com/user-attachments/assets/4c9ebd9c-a83a-4c01-bdcf-4310097265a0" />
 <img width="254" alt="图片_20250203205414" src="https://github.com/user-attachments/assets/2906dd40-0051-41bd-9e51-70f818790187" />
 <img width="254" alt="图片_20250203205418" src="https://github.com/user-attachments/assets/22c85d64-369c-46af-8e90-d2eecfe4d722" />
+![Screen Recording 2025-05-24 184504 mp4](https://github.com/user-attachments/assets/03c17e48-119e-4074-8ae2-983195500876)
