@@ -27,6 +27,7 @@ dependencies:
   shimmer: ^3.0.0
   sliver_tools: ^0.2.12
   dotted_line: ^3.2.3
+  flutter_html: ^3.0.0
 
 dev_dependencies:
   flutter_test:

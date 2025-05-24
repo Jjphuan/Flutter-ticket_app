@@ -354,7 +354,9 @@ class _TicketScreenState extends State<TicketScreen> {
                         ),
                         child: Text(
                           AppLocalizations.of(context)!.book_now,
-                          style: AppStyle.headTextSmaller,
+                          style: AppStyle.headTextSmaller.copyWith(
+                            color: Colors.white
+                          ),
                         )
                     ),
                     const SizedBox(height: 20),

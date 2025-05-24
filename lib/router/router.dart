@@ -2,12 +2,13 @@ import 'package:GoTravel/base/bottom_nav_bar.dart';
 import 'package:GoTravel/screens/home/all_hotel.dart';
 import 'package:GoTravel/screens/home/all_ticket.dart';
 import 'package:GoTravel/screens/home/home_screen.dart';
-import 'package:GoTravel/screens/home/setting/change_language.dart';
+import 'package:GoTravel/screens/home/setting/about.dart';
+import 'package:GoTravel/screens/home/setting/personal_information.dart';
 import 'package:GoTravel/screens/home/setting/setting.dart';
-import 'package:GoTravel/screens/home/setting/setting_account.dart';
+import 'package:GoTravel/screens/home/setting/passengers.dart';
 import 'package:GoTravel/screens/home/widgets/hotel_detail.dart';
 import 'package:GoTravel/screens/profile/profile_screen.dart';
-import 'package:GoTravel/screens/search/search_screen.dart';
+import 'package:GoTravel/screens/search/help_screen.dart';
 import 'package:GoTravel/screens/ticket/ticket_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -38,7 +39,7 @@ final GoRouter router = GoRouter(
       ),
       GoRoute(
           path: '/help',
-          builder: (context,state) => const BottomNavBar(child: SearchScreen()),
+          builder: (context,state) => const BottomNavBar(child: HelpScreen()),
           routes: [
 
           ]
@@ -59,12 +60,16 @@ final GoRouter router = GoRouter(
                     builder: (context,state) => const Setting(),
                     routes: [
                       GoRoute(
-                          path: '/change_language',
-                          builder: (context,state) => const ChangeLanguage()
+                          path: '/personal_information',
+                          builder: (context,state) => const PersonalInformation()
                       ),
                       GoRoute(
-                          path: '/setting_account',
-                          builder: (context,state) => const SettingAccount()
+                          path: '/passengers',
+                          builder: (context,state) => const Passengers()
+                      ),
+                      GoRoute(
+                          path: '/about',
+                          builder: (context,state) => const About()
                       )
                     ]
                 )

@@ -6,7 +6,7 @@ class HttpParse {
 
   Future<Response> get(String api,[Map<String, dynamic>? queryParameter]) async{
     final prefs = await SharedPreferences.getInstance();
-    final langCode = prefs.getString('locale');
+    final langCode = prefs.getString('locale') ?? 'en';
     Response response =  await dio.get(
       api,
       queryParameters: queryParameter,

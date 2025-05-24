@@ -42,8 +42,29 @@
   "book_now": "Book Now",
   "past_booking": "Past Bookings",
   "view_ticket_detail": "View Ticket Details",
+  "help_center": "Help Center",
+  "can_help_you": "Hi, Can I help you ?",
+  "look_something_else": "Looking for something else?",
+  "guest": "Guest",
+  "member_since": "Member Since",
+  "email": "Email",
+  "contact_num": "Contact Number",
+  "delete_account": "Delete Account",
+  "log_out": "Log Out",
+  "personal_information": "Personal Information",
+  "about_us": "About Us",
+  "privacy_policy": "Privacy policy",
+  "terms_and_conditions": "Terms and conditions",
+  "getting_start": "Getting Started",
+  "login_and_password": "Login and Password",
+  "account_setting": "Account Setting",
+  "purchase_and_refund": "Purchase and Refund",
+  "trust_and_safety": "Trust and Safety",
+  "booking": "Booking",
 
   "chinese": "Chinese",
-  "english": "English"
+  "english": "English",
+
+  "about_content": "At GoTravel, we believe that every journey should start with ease, comfort, and confidence. That’s why we’ve built a smart, simple, and secure ticketing platform to help you book your next adventure — whether it's a quick city trip or a cross-country journey.Our mission is make travel planning effortless by providing a seamless ticket booking experience across multiple transportation options — all in one place."
 
 }

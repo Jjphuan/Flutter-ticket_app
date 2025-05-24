@@ -22,7 +22,7 @@ class SettingProvider extends ChangeNotifier{
 
       if (response.data['success'] == true) {
         _settingList = response.data['data'];
-        // print(response);
+        print(response);
         notifyListeners();
       }else{
         showCustomDialog(

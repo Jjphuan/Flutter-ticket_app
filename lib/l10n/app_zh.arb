@@ -39,7 +39,29 @@
   "book_now": "现在预定",
   "past_booking": "购票历史",
   "view_ticket_detail": "查看车票详情",
+  "help_center": "帮助中心",
+  "can_help_you": "嗨，需要帮忙吗 ?",
+  "look_something_else": "需要其他帮助吗？",
+  "guest": "游客",
+  "member_since": "用户注册于",
+  "email": "邮箱",
+  "contact_num": "联络号码",
+  "delete_account": "删除账号",
+  "log_out": "登出",
+  "personal_information": "个人信息",
+  "about_us": "关于我们",
+  "privacy_policy": "隐私政策",
+  "terms_and_conditions": "条款与条件",
+  "getting_start": "开始使用",
+  "login_and_password": "登录与密码",
+  "account_setting": "账户设置",
+  "purchase_and_refund": "购买与退款",
+  "trust_and_safety": "信任与安全",
+  "booking": "预订",
 
   "chinese": "中文",
-  "english": "英文"
+  "english": "英文",
+
+  "about_content": "在 GoTravel，我们相信每一次旅程都应从轻松、舒适和信心开始。正因如此，我们打造了一个智能、简单且安全的订票平台，帮助您预订下一次的冒险之旅——无论是短途城市旅行还是跨国长途旅程。我们的使命是通过提供一个整合多种交通方式的无缝订票体验，让旅行规划变得轻而易举。"
+
 }
