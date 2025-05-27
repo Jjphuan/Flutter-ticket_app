@@ -220,6 +220,44 @@ List<Map<String, dynamic>> questionList = [
   },
 ];
 
+List<Map<String, dynamic>> getSettingList(BuildContext context) {
+  return [
+    {
+      "id": 1,
+      "icon":  const Icon(Icons.person),
+      "name": AppLocalizations.of(context)!.personal_information,
+      'route': "personal_information"
+    },
+    {
+      "id": 2,
+      "icon": const Icon(Icons.people),
+      "name": AppLocalizations.of(context)!.passenger,
+      'route': "passengers"
+    },
+    {
+      "id": 3,
+      "icon": const Icon(Icons.language),
+      "name": AppLocalizations.of(context)!.change_language,
+    },
+    {
+      "id": 4,
+      "icon": const Icon(Icons.info),
+      "name": AppLocalizations.of(context)!.about_us,
+      'route': "about"
+    },
+    {
+      "id": 5,
+      "icon": const Icon(Icons.call),
+      "name": AppLocalizations.of(context)!.contact_us,
+    },
+    {
+      "id": 6,
+      "icon": const Icon(Icons.settings),
+      "name": AppLocalizations.of(context)!.account_setting,
+    }
+  ];
+}
+
 List<Map<String, dynamic>> getHelpList(BuildContext context) {
   return [
     {

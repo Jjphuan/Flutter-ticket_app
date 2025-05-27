@@ -1,6 +1,7 @@
 import 'package:GoTravel/base/utils/all_json.dart';
 import 'package:GoTravel/base/widgets/app_double_text.dart';
 import 'package:GoTravel/base/widgets/ticket_view.dart';
+import 'package:GoTravel/provider/login_register_provider.dart';
 import 'package:GoTravel/screens/home/widgets/offer.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  @override
+  void initState() {
+    final provider = Provider.of<LoginRegisterProvider>(context,listen: false);
+    provider.checkLoginToken(context);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
 

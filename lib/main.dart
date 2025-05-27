@@ -1,4 +1,5 @@
 import 'package:GoTravel/provider/locale_provider.dart';
+import 'package:GoTravel/provider/login_register_provider.dart';
 import 'package:GoTravel/provider/setting_provider.dart';
 import 'package:GoTravel/router/router.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
             ChangeNotifierProvider.value(
             value: localeProvider,
           ),
-          ChangeNotifierProvider(create: (_) => SettingProvider())
+          ChangeNotifierProvider(create: (_) => SettingProvider()),
+          ChangeNotifierProvider(create: (_) => LoginRegisterProvider())
         ],
       child: Consumer<LocaleProvider>(
         builder: (context, provider, child) {

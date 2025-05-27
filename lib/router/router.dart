@@ -2,11 +2,11 @@ import 'package:GoTravel/base/bottom_nav_bar.dart';
 import 'package:GoTravel/screens/home/all_hotel.dart';
 import 'package:GoTravel/screens/home/all_ticket.dart';
 import 'package:GoTravel/screens/home/home_screen.dart';
-import 'package:GoTravel/screens/home/setting/about.dart';
-import 'package:GoTravel/screens/home/setting/personal_information.dart';
-import 'package:GoTravel/screens/home/setting/setting.dart';
-import 'package:GoTravel/screens/home/setting/passengers.dart';
+import 'package:GoTravel/screens/profile/setting/about.dart';
+import 'package:GoTravel/screens/profile/setting/personal_information.dart';
+import 'package:GoTravel/screens/profile/setting/passengers.dart';
 import 'package:GoTravel/screens/home/widgets/hotel_detail.dart';
+import 'package:GoTravel/screens/login_register/login_register.dart';
 import 'package:GoTravel/screens/profile/profile_screen.dart';
 import 'package:GoTravel/screens/search/help_screen.dart';
 import 'package:GoTravel/screens/ticket/ticket_screen.dart';
@@ -55,24 +55,22 @@ final GoRouter router = GoRouter(
           path: '/profile',
           builder: (context,state) => const BottomNavBar(child: ProfileScreen()),
           routes: [
-                GoRoute(
-                    path: '/setting',
-                    builder: (context,state) => const Setting(),
-                    routes: [
-                      GoRoute(
-                          path: '/personal_information',
-                          builder: (context,state) => const PersonalInformation()
-                      ),
-                      GoRoute(
-                          path: '/passengers',
-                          builder: (context,state) => const Passengers()
-                      ),
-                      GoRoute(
-                          path: '/about',
-                          builder: (context,state) => const About()
-                      )
-                    ]
-                )
+            GoRoute(
+                path: '/login_register',
+                builder: (context,state) => const LoginRegister()
+            ),
+            GoRoute(
+                path: '/personal_information',
+                builder: (context,state) => const PersonalInformation()
+            ),
+            GoRoute(
+                path: '/passengers',
+                builder: (context,state) => const Passengers()
+            ),
+            GoRoute(
+                path: '/about',
+                builder: (context,state) => const About()
+            )
           ]
       )
     ]

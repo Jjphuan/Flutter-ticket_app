@@ -1,5 +1,8 @@
+import 'package:GoTravel/base/utils/all_json.dart';
 import 'package:GoTravel/provider/locale_provider.dart';
+import 'package:GoTravel/provider/login_register_provider.dart';
 import 'package:GoTravel/provider/setting_provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -8,6 +11,7 @@ import 'package:GoTravel/base/res/media.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -17,58 +21,58 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  bool loading = true;
+
+  bool loading = false;
+  bool isLogin = false;
+
+  String username = '';
+  String phone_num = '';
+  String register_at = '';
 
   @override
   void initState() {
-    _getSettingList();
+    _getInitVariable();
     super.initState();
   }
 
-  void _getSettingList ()async{
-    final provider = Provider.of<SettingProvider>(context,listen: false);
-    setState(() {
-      loading = true;
-    });
-    await provider.getSettingList(context);
-    await Future.delayed(const Duration(milliseconds: 200));
-    setState(() {
-      loading = false;
-    });
-  }
+  void _getInitVariable()async{
+    loading = true;
+    if(loading){
+      final prefs = await SharedPreferences.getInstance();
+      final currentLang = prefs.getString('locale');
 
-  Icon matchSettingIcon(int settingId){
-    Icon icon = Icon(Icons.hourglass_empty);
-    
-    switch(settingId){
-      case 1 :
-        icon = Icon(Icons.person);
-        break;
-      case 2 :
-        icon = Icon(Icons.people);
-        break;
-      case 3 :
-        icon = Icon(Icons.language);
-        break;
-      case 4 :
-        icon = Icon(Icons.info);
-        break;
-      case 5 :
-        icon = Icon(Icons.call);
-        break;
-      case 6 :
-        icon = Icon(Icons.settings);
-        break;
+      isLogin = prefs.getBool('isLogin') ?? false;
+      username = prefs.getString('name')!;
+      phone_num = prefs.getString('phone_number')!;
+      final date = DateTime.parse(prefs.getString('register_at')!);
+      register_at = DateFormat.yMMMM('$currentLang').format(date);
+
+      setState(() {
+        loading = false;
+      });
     }
 
-    return icon;
   }
+
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<SettingProvider>(context,listen: true);
+    final provider = Provider.of<LoginRegisterProvider>(context,listen: true);
 
-    return (!loading) ? Scaffold(
+    if (loading) {
+      return Column(
+      children: [
+        const SizedBox(height: 200),
+        Center(
+          child: LoadingAnimationWidget.staggeredDotsWave(
+            color: Colors.blue,
+            size: 100,
+          ),
+        ),
+      ],
+    );
+    }
+    return Scaffold(
       backgroundColor: AppStyle.bgColor,
       body: ListView(
         children: [
@@ -97,61 +101,66 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Column(
+                    (isLogin) ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "User",
+                          username,
                           style: AppStyle.headTextBig,
                         ),
                         Text(
-                          "60123456789",
+                          phone_num,
                           style: AppStyle.headTextSmaller.copyWith(
                               color: Colors.grey[600]
                           ),
                         ),
                         const SizedBox(height:5),
                         Text(
-                          "${AppLocalizations.of(context)!.member_since} Nov 2018",
+                          "${AppLocalizations.of(context)!.member_since} $register_at",
                           style: AppStyle.headTextSmaller.copyWith(
                               color: Colors.grey[600]
                           ),
                         ),
                       ],
+                    ) :
+                    Text(
+                      AppLocalizations.of(context)!.hi_guest,
+                      style: AppStyle.headTextBig.copyWith(
+                        fontSize: 20
+                      ),
                     ),
                   ],
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 15),
-          Column(
+          const SizedBox(height: 35),
+          (isLogin) ? Column(
             children: [
               const SizedBox(height: 20),
               ...List.generate(
-                  provider.settingList.length, (index){
-                final currentData = provider.settingList[index];
-
+                  getSettingList(context).length, (index){
+                  final currentData = getSettingList(context)[index];
                 return GestureDetector(
                   onTap: () async{
-                    if(currentData['setting_id'] == 3){
+                    if(currentData['id'] == 3){
                       final isChange = await _languageShowBottomSheet(context,currentData['name']);
                       if(isChange){
-                        _getSettingList();
+                        _getInitVariable();
                       }
-                    }else if(currentData['setting_id'] == 5){
+                    }else if(currentData['id'] == 5){
                       final isChange = await _contactShowBottomSheet(context,currentData['name']);
                       if(isChange){
-                        _getSettingList();
+
                       }
-                    }else if(currentData['setting_id'] == 6){
+                    }else if(currentData['id'] == 6){
                       final isChange = await _accountShowBottomSheet(context,currentData['name']);
                       if(isChange){
-                        _getSettingList();
+
                       }
                     } else{
-                      await context.push('/profile/setting/${currentData['route_name']}');
-                      _getSettingList();
+                      await context.push('/profile/${currentData['route']}');
+
                     }
                   },
                   child: Container(
@@ -167,7 +176,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         children: [
                           Row(
                             children: [
-                              matchSettingIcon(currentData['setting_id']),
+                              currentData['icon'],
                               const SizedBox(width: 6),
                               Text(
                                 currentData['name'],
@@ -186,19 +195,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               const SizedBox(height: 20),
             ],
-          )
+          ):
+              Column(
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.login_benefit,
+                    style: AppStyle.headTextSmall
+                  ),
+                  const SizedBox(height: 30),
+                  TextButton(
+                      onPressed: () async{
+                        await context.push('/profile/login_register');
+                        _getInitVariable();
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white, // text color
+                        backgroundColor: Colors.blue,  // button background color
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Text(
+                          AppLocalizations.of(context)!.login
+                      )
+                  )
+                ],
+              )
         ],
       ),
-    ) : Column(
-      children: [
-        const SizedBox(height: 200),
-        Center(
-          child: LoadingAnimationWidget.staggeredDotsWave(
-            color: Colors.blue,
-            size: 100,
-          ),
-        ),
-      ],
     );
   }
 
@@ -322,7 +348,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           return StatefulBuilder(
               builder: (context, index){
                 return Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.vertical(
                           top: Radius.circular(20)
@@ -480,7 +506,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const Divider(),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: () async{
+                              final provider = Provider.of<LoginRegisterProvider>(context,listen: false);
+
+                              await provider.logout(context);
+                              if(context.mounted){
+                                context.go('/');
+                              }
+                            },
                             child: Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 18.0,vertical: 5),
                               child: Row(
