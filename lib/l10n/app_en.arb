@@ -83,6 +83,7 @@
   "close": "Close",
   "register_success": "Register Success",
   "login_success": "Login Success",
+  "logout_success": "Logout Success",
 
   "chinese": "Chinese",
   "english": "English",

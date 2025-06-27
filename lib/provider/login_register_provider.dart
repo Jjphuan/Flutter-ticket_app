@@ -192,61 +192,6 @@ class LoginRegisterProvider extends ChangeNotifier{
     }
   }
 
-  Future<void> logout(BuildContext context) async{
-    try{
-      Response response = await HttpParse().post(
-        Endpoint.logout
-      );
-
-      if(response.data['success'] == 'true'){
-        final prefs = await SharedPreferences.getInstance();
-        if(context.mounted){
-          prefs.remove('id');
-          prefs.setBool('isLogin',false);
-          prefs.remove('name');
-          prefs.remove('email');
-          prefs.remove('phone_number');
-          prefs.remove('register_at');
-          prefs.remove('token');
-          context.pop();
-        }
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            elevation: 5,
-            behavior: SnackBarBehavior.floating,
-            padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 18),
-            content: Text(
-              AppLocalizations.of(context)!.register_success,
-              style: AppStyle.headTextSmaller.copyWith(
-                  color: Colors.white
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            duration: const Duration(seconds: 3),
-            dismissDirection: DismissDirection.horizontal,
-          ),
-        );
-      }
-
-    }catch(err){
-      String errorMessage = 'Unknown Message';
-
-      if(err is DioException){
-        errorMessage = HttpParse.handleErrorMessage(err);
-      }
-
-      if(context.mounted){
-        showCustomDialog(
-            context,
-            AppLocalizations.of(context)!.login_failed,
-            errorMessage
-        );
-      }
-    }
-  }
-
   bool get loginSuccess => _loginSuccess;
 }
 

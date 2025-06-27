@@ -36,7 +36,7 @@ class Offer extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            offer['valid_date'],
+            offer['expired_at'],
             style: AppStyle.headTextSmall.copyWith(
                 color: Colors.white,
                 fontSize: 14
@@ -46,7 +46,7 @@ class Offer extends StatelessWidget {
           ),
           const SizedBox(height: 45),
           Text(
-            offer['desc'],
+            offer['description'],
             style: AppStyle.headTextSmall.copyWith(
                 color: Colors.white,
                 fontSize: 14

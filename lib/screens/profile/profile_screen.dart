@@ -1,4 +1,5 @@
 import 'package:GoTravel/base/utils/all_json.dart';
+import 'package:GoTravel/custom/custom_utils.dart';
 import 'package:GoTravel/provider/locale_provider.dart';
 import 'package:GoTravel/provider/login_register_provider.dart';
 import 'package:GoTravel/provider/setting_provider.dart';
@@ -40,12 +41,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
     if(loading){
       final prefs = await SharedPreferences.getInstance();
       final currentLang = prefs.getString('locale');
+      final registerAtStr = prefs.getString('register_at');
 
       isLogin = prefs.getBool('isLogin') ?? false;
-      username = prefs.getString('name')!;
-      phone_num = prefs.getString('phone_number')!;
-      final date = DateTime.parse(prefs.getString('register_at')!);
-      register_at = DateFormat.yMMMM('$currentLang').format(date);
+      username = prefs.getString('name') ?? '';
+      final phone = prefs.getString('phone_number') ?? '';
+      phone_num = phoneAddDash(phone);
+
+      if (registerAtStr != null) {
+        final date = DateTime.parse(registerAtStr);
+        register_at = DateFormat.yMMMM(currentLang).format(date);
+      } else {
+        register_at = '';
+      }
+
 
       setState(() {
         loading = false;
@@ -109,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           style: AppStyle.headTextBig,
                         ),
                         Text(
-                          phone_num,
+                          "+60 ${phone_num}",
                           style: AppStyle.headTextSmaller.copyWith(
                               color: Colors.grey[600]
                           ),
@@ -155,9 +164,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       }
                     }else if(currentData['id'] == 6){
                       final isChange = await _accountShowBottomSheet(context,currentData['name']);
-                      if(isChange){
-
-                      }
                     } else{
                       await context.push('/profile/${currentData['route']}');
 
@@ -507,11 +513,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           const Divider(),
                           GestureDetector(
                             onTap: () async{
-                              final provider = Provider.of<LoginRegisterProvider>(context,listen: false);
+                              final provider = Provider.of<SettingProvider>(context,listen: false);
 
                               await provider.logout(context);
                               if(context.mounted){
                                 context.go('/');
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    elevation: 5,
+                                    behavior: SnackBarBehavior.floating,
+                                    padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 18),
+                                    content: Text(
+                                      AppLocalizations.of(context)!.logout_success,
+                                      style: AppStyle.headTextSmaller.copyWith(
+                                          color: Colors.white
+                                      ),
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    duration: const Duration(seconds: 3),
+                                    dismissDirection: DismissDirection.horizontal,
+                                  ),
+                                );
                               }
                             },
                             child: Padding(

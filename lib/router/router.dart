@@ -1,4 +1,5 @@
 import 'package:GoTravel/base/bottom_nav_bar.dart';
+import 'package:GoTravel/base/widgets/suggest_search_bar.dart';
 import 'package:GoTravel/screens/home/all_hotel.dart';
 import 'package:GoTravel/screens/home/all_ticket.dart';
 import 'package:GoTravel/screens/home/home_screen.dart';
@@ -19,6 +20,16 @@ final GoRouter router = GoRouter(
           path: '/',
           builder: (context,state) => const BottomNavBar(child: HomeScreen()),
           routes: [
+                GoRoute(
+                    path: '/search_ticket',
+                    builder: (context,state){
+                      final data = state.extra as Map;
+                      final hint = data['hint'] as String;
+                      final searchKey = data['search_key'] as String;
+
+                      return SearchBar(searchHint: hint,searchKey: searchKey,);
+                    }
+                ),
                 GoRoute(
                     path: '/all_tickets',
                     builder: (context,state) => const AllTickets()

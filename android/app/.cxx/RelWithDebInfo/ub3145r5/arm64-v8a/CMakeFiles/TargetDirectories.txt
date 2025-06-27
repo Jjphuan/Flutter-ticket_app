@@ -1,0 +1,2 @@
+D:/Learning/ticket_app/flutter/android/app/.cxx/RelWithDebInfo/ub3145r5/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/Learning/ticket_app/flutter/android/app/.cxx/RelWithDebInfo/ub3145r5/arm64-v8a/CMakeFiles/rebuild_cache.dir

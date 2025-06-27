@@ -7,4 +7,13 @@ class Endpoint{
   static String checkToken = '/user';
   static String logout = '/logout';
 
+  //help center
+  static String question = '/question';
+
+  //home
+  static String discount = '/discount';
+
+  // ticket
+  static String searchTickets = '/search_tickets';
+  static String tickets = '/all_tickets';
 }
